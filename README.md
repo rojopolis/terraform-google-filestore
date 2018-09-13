@@ -2,12 +2,12 @@
 
 A module to manage Google Cloud Filestore instances
 
-~~~~
+```
 provider "google" {}
 data "google_client_config" "current" {}
 
 module "filestore" {
-    source = "../"
+    source  = "rojopolis/filestore/google""
     instance_id = "testing"
     project = "${data.google_client_config.current.project}"
     location = "us-west1-b"
@@ -25,4 +25,13 @@ module "filestore" {
         baz = "biz"
     }
 }
-~~~~
+
+output "filestore_ip" {
+    value = "${module.filestore.filestore_ip}"
+}
+```
+
+## External dependencies
+
+* [jq](https://stedolan.github.io/jq/)
+* [Google Cloud SDK](https://cloud.google.com/sdk/)

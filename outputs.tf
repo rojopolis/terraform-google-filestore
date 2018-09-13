@@ -1,3 +1,4 @@
 output "filestore_ip" {
-    value = "${data.external.filestore_ip.result}"
+    description = "IP address of the Cloud Filestore instance."
+    value = "${data.external.filestore_ip.result["ipAddress"]}"
 }

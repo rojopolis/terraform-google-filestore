@@ -19,3 +19,7 @@ module "filestore" {
         baz = "biz"
     }
 }
+
+output "filestore_ip" {
+    value = "${module.filestore.filestore_ip}"
+}

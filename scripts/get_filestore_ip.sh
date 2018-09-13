@@ -6,6 +6,11 @@
 set -e
 
 
-RESULT="$(gcloud beta filestore instances describe $1 --project=$2 --location=$3 --format=json | jq -r '.networks[0].ipAddresses[0]')"
+RESULT="$(gcloud beta filestore instances describe \
+          $1 \
+          --project=$2 \
+          --location=$3 \
+          --format=json | \
+          jq -r '.networks[0].ipAddresses[0]')"
 
 jq -r -n --arg result "$RESULT" '{"ipAddress":$result}'
