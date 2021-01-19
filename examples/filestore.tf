@@ -6,8 +6,8 @@ module "filestore" {
     project = "${data.google_client_config.current.project}"
     location = "us-west1-b"
     file_share = {
-        capacity = "1TB"
-        name     = "testing1"
+        capacity = "1024"
+        name     = "cbtesting"
     }
     network = {
         name = "default"
